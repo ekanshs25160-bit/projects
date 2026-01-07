@@ -17,11 +17,6 @@ function loadVoices() {
   voices = synth.getVoices();
 
   if (voices.length === 0) {
-    // Try again shortly if voices aren't loaded yet
-    setTimeout(() => {
-        voices = synth.getVoices();
-        if (voices.length > 0) loadVoices();
-    }, 100);
     return;
   }
 
@@ -33,11 +28,6 @@ function loadVoices() {
     option.textContent = `${voice.name} (${voice.lang})`;
     voiceSelect.appendChild(option);
   });
-
-  // Select the first voice by default if any are available
-  if (voices.length > 0) {
-     voiceSelect.selectedIndex = 0;
-  }
 
   console.log(`Loaded ${voices.length} voices`);
 }
@@ -113,18 +103,8 @@ function stop() {
 function init() {
   console.log("Text-to-Speech App initialized");
 
-  if (!('speechSynthesis' in window)) {
-    alert("Sorry, your browser doesn't support text to speech!");
-    return;
-  }
-
   loadVoices();
 
-  // Handle voices loaded event - some browsers prefer onvoiceschanged
-  if (speechSynthesis.onvoiceschanged !== undefined) {
-    speechSynthesis.onvoiceschanged = loadVoices;
-  }
-  // Fallback for others
   synth.addEventListener("voiceschanged", loadVoices);
 
   textInput.addEventListener("input", updateCharCount);
