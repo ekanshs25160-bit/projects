@@ -12,7 +12,6 @@
 <body>
     <div class="app-container">
         <h1>Pomodoro Timer</h1>
-        <div class="app-message">Press to Start</div>
         <div class="app-circle">
             <div class="circle-shape">
                 <div class="semi-circle right-side circle-mask"></div>
@@ -20,10 +19,19 @@
                 <div class="semi-circle left-side circle-mask"></div>
                 <div class="semi-circle left-side circle"></div>
             </div>
-            <div class="app-counter-box">
+        <div class="app-counter-box">
                 <p><span class="minutes">25</span>:<span class="seconds">00</span></p>
             </div>
-            <button class="btn-start">start</button>
+        </div>
+        <div class="controls-container">
+            <div c lass="time-controls">
+                <input type="number" class="time-input" placeholder="25" min="1" max="60" value="25">
+                <button class="btn-set">Set Time</button>
+            </div>
+            <div class="main-controls">
+                <button class="btn-start">Start</button>
+                <button class="btn-stop">Stop</button>
+            </div>
         </div>
     </div>
 </body>
