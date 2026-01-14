@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="style.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" />
 </head>
 <body>
-  <main>
+  <div class="background-gradient"></div>
+  <main class="glass-card">
     <section id="weather-wrapper">
       <h1>Weather App</h1>
       <div id="weather-search">
-        <input id="search" type="text" placeholder="Search by city" />
-        <input id="submit" type="submit" onclick="fetchWeather()" value="Search" />
+        <input id="search" type="text" placeholder="Search city..." autocomplete="off"/>
+        <button id="submit" onclick="fetchWeather()">Search</button>
       </div>
-      <div id="weather-data" style="display: none;"></div>
+      <div id="weather-data" class="hidden"></div>
     </section>
   </main>
   <script src="script.js"></script>
